@@ -179,12 +179,4 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
-app_surveys.py__pycache__/
-build/
-dist/
-wheels/
-*.egg-info
-.venv
-.pytest_cache/
-.databricks
-.env
+app_surveys.py
