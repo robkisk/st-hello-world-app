@@ -180,3 +180,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 app_survey.py
+.cursor/rules/dabs-rules.mdc
+.cursor/rules/py-rules-all.mdc
