@@ -3,11 +3,12 @@ import os
 import streamlit as st
 import pandas as pd
 import numpy as np
-from databricks.connect import DatabricksSession
+
 from databricks.sdk.core import Config
-from pyspark.sql import SparkSession, DataFrame
+from pyspark.sql import DataFrame
 import polars as pl
 from utils import get_spark_session
+
 # COMMAND ----------
 
 st.title("Uber pickups in NYC")
@@ -77,6 +78,7 @@ def getData(spark):
 #     return data
 
 
+# COMMAND ----------
 data_load_state = st.text("Loading data...")
 spark = get_spark_session()
 data = getData(spark)
@@ -107,3 +109,5 @@ else:
 #
 # st.subheader("Map of all pickups at %s:00" % hour_to_filter)
 # st.map(filtered_data)
+
+# COMMAND ----------

@@ -182,3 +182,7 @@ cython_debug/
 app_survey.py
 .cursor/rules/dabs-rules.mdc
 .cursor/rules/py-rules-all.mdc
+
+.databricks
+
+.databricks
