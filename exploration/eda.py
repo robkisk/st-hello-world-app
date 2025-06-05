@@ -32,4 +32,8 @@ spark.table("bu1_dev.analytics.uber_pickups").count()
 spark.table("bu1_dev.analytics.uber_pickups").show(10, False)
 
 # COMMAND ----------
-# spark.sql("drop table bu1_dev.analytics.uber_pickups")
+spark.sql(
+    "grant all privileges on catalog bu1_dev to `aec9002d-d47a-431a-8886-4c8a40baa9c1`"
+)
+
+# COMMAND ----------

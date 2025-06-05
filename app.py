@@ -13,11 +13,6 @@ from utils import get_spark_session
 
 st.title("Uber pickups in NYC")
 
-# DATE_COLUMN = "date/time"
-# DATA_URL = (
-#     "https://s3-us-west-2.amazonaws.com/streamlit-demo-data/uber-raw-data-sep14.csv.gz"
-# )
-
 
 def get_taxi_df(query, spark_session) -> DataFrame:
     return spark_session.sql(query)
@@ -26,13 +21,6 @@ def get_taxi_df(query, spark_session) -> DataFrame:
 def save_to_delta_table(
     pl_df, spark_session, table_name="bu1_dev.analytics.uber_pickups"
 ):
-    """
-    Convert Polars DataFrame to Spark DataFrame and save as Delta table
-
-    Args:
-        pl_df: Polars DataFrame
-        table_name: Full name of the Delta table to save to
-    """
     try:
         # Convert Polars to pandas (intermediate step)
         pd_df = pl_df.to_pandas()

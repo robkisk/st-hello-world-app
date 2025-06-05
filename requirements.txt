@@ -1,4 +1,4 @@
-# databricks-connect==16.1.5
+databricks-connect==16.1.5
 polars==1.30.0
 plotly
 # databricks-connect>=15.1.0
