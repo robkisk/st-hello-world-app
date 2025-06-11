@@ -12,7 +12,17 @@ from databricks.sdk.core import Config
 from pyspark.sql import DataFrame
 from pyspark.sql.functions import col, current_date, lit, sum, when
 
-spark = DatabricksSession.builder.serverless().getOrCreate()
+
+def create_spark_session():
+    try:
+        spark = DatabricksSession.builder.serverless().getOrCreate()
+        return spark
+    except Exception as e:
+        print(f"Error creating Spark session: {e}")
+        raise
+
+
+spark = create_spark_session()
 # print(f"host from dbconnect: {spark.conf.get('spark.databricks.workspaceUrl')}")
 # print(f"cluster id: {spark.conf.get('spark.databricks.clusterUsageTags.clusterId')}")
 # w = WorkspaceClient(profile="dev")
@@ -32,8 +42,6 @@ spark.table("bu1_dev.analytics.uber_pickups").count()
 spark.table("bu1_dev.analytics.uber_pickups").show(10, False)
 
 # COMMAND ----------
-spark.sql(
-    "grant all privileges on catalog bu1_dev to `3fe2d061-ec73-4a29-b11d-bd2df8642291`"
-)
+spark.sql("grant all privileges on catalog bu1_dev to `<add_uuid_here>`")
 
 # COMMAND ----------
