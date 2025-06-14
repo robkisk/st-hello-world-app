@@ -35,6 +35,27 @@ tables = spark.catalog.listTables("bu1_dev.analytics")
 for table in tables:
     print(table.name)
 
+
+# COMMAND ----------
+def read_uber_pickups_sample(spark: DatabricksSession, limit: int = 10) -> None:
+    """Read the uber_pickups table and display the first N rows.
+
+    Args:
+        spark: The Databricks Spark session
+        limit: Number of rows to display (default: 10)
+    """
+    try:
+        df = spark.table("bu1_dev.analytics.uber_pickups")
+        print(f"Displaying first {limit} rows from uber_pickups table:")
+        df.show(limit, False)
+    except Exception as e:
+        print(f"Error reading uber_pickups table: {e}")
+        raise
+
+
+# Call the function to display the first 10 rows
+read_uber_pickups_sample(spark)
+
 # COMMAND ----------
 spark.table("bu1_dev.analytics.uber_pickups").count()
 
